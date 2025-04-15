@@ -1,0 +1,63 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.fondo-imagen {
+  background-image: url('/images/tu-imagen.jpg'); /* Cambia la ruta según donde hayas guardado la imagen */
+  background-size: cover; /* O 'contain' según lo que necesites */
+  background-position: center;
+  height: 100vh; /* Ajusta la altura según sea necesario */
+}
+
+.product-card {
+  width: 200px; /* Ajusta el ancho según sea necesario */
+  height: 250px; /* Ajusta la altura según sea necesario */
+  overflow: hidden; /* Para ocultar cualquier desbordamiento */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: transform 0.3s; /* Transición suave al hacer hover */
+}
+
+.product-card img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+  height: 150px; /* Altura fija para las imágenes */
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+}
