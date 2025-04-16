@@ -17,7 +17,7 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter basename="/my-app">
+    <BrowserRouter>
       <CartProvider>
         <Toaster
           position="top-right"

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import ProductCard from '../components/ProductCard';
-import { FiFilter, FiX, FiChevronDown, FiChevronUp, FiStar, FiSearch } from 'react-icons/fi';
+import { FiFilter, FiX, FiChevronDown, FiChevronUp, FiStar, FiSearch, FiShoppingCart } from 'react-icons/fi';
 
 export default function Products() {
   const [filterOpen, setFilterOpen] = useState(false);
@@ -19,85 +19,73 @@ export default function Products() {
   const allProducts = [
     {
       id: 1,
-      name: "Taste of the Wild Pacific Stream Adult",
-      price: 52.99,
-      originalPrice: 59.99,
-      discount: 12,
+      name: "Juguetes para perro sin relleno con chirridos zorro",
+      price: 4.99,
+      originalPrice: 9.99,
+      discount: 50,
       rating: 4.8,
       numReviews: 124,
-      image: "https://bestforpets.cl/tienda/12793-large_default/taste-of-the-wild-pacific-stream.jpg",
+      image: "https://m.media-amazon.com/images/I/71yfbnE+g6L._AC_SL1500_.jpg",
       category: "Perros",
       inStock: true
     },
     {
       id: 2,
-      name: "Taste of the Wild Pacific Stream Felino",
-      price: 19.99,
-      originalPrice: 24.99,
-      discount: 20,
+      name: "Juguetes para perro con relleno con chirridos pato",
+      price: 4.99,
+      originalPrice: 9.99,
+      discount: 50,
       rating: 4.5,
       numReviews: 89,
-      image: "https://bestforpets.cl/tienda/12793-large_default/taste-of-the-wild-pacific-stream.jpg",
-      category: "Gatos",
-      inStock: true
-    },
-    {
-      id: 3,
-      name: "Taste of the Wild High Prairie Adult",
-      price: 29.99,
-      originalPrice: 34.99,
-      discount: 14,
-      rating: 4.6,
-      numReviews: 78,
-      image: "https://braloy102.akamaized.net/8000/taste-of-the-wild-high-prairie-adulto-122-kg.jpg",
+      image: "https://m.media-amazon.com/images/I/61XyqzJPv-L._AC_UF1000,1000_QL80_.jpg",
       category: "Perros",
       inStock: true
     },
     {
       id: 4,
-      name: "Taste of the Wild High Prairie Canine",
-      price: 59.99,
-      originalPrice: 79.99,
-      discount: 25,
+      name: "Juguetes para perro sin relleno con chirridos pinguino",
+      price: 4.99,
+      originalPrice: 9.99,
+      discount: 50,
       rating: 4.9,
       numReviews: 112,
-      image: "https://braloy102.akamaized.net/8000/taste-of-the-wild-high-prairie-adulto-122-kg.jpg",
+      image: "https://m.media-amazon.com/images/I/713-b333uhL._AC_SL1500_.jpg",
       category: "Perros",
       inStock: true
     },
     {
       id: 5,
-      name: "Taste of the Wild Pacific Stream Puppy",
-      price: 45.99,
-      originalPrice: 49.99,
-      discount: 8,
+      name: "Juguetes para perro sin relleno con chirridos zorrillo",
+      price: 4.99,
+      originalPrice: 9.99,
+      discount: 50,
       rating: 4.7,
       numReviews: 103,
-      image: "https://www.tusmascotas.cl/wp-content/uploads/2020/10/Taste-Of-The-Wild-Pacific-Stream-Puppy-Salmon-.jpg",
+      image: "https://m.media-amazon.com/images/I/61bUzbSD69L._AC_SL1500_.jpg",
       category: "Perros",
       inStock: true
     },
     {
       id: 6,
-      name: "Taste of the Wild Pacific Stream Gato",
+      name: "Taste of the Wild Pacific Stream canine recipe",
       price: 59.99,
       originalPrice: 79.99,
       discount: 25,
       rating: 4.6,
       numReviews: 72,
-      image: "https://www.tusmascotas.cl/wp-content/uploads/2020/10/Taste-Of-The-Wild-Pacific-Stream-Puppy-Salmon-.jpg",
+      image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ7xwGQ1UA-95BdxfCMW-CPDpJJ3gF6VJeGbGylQWsPEMQ91gFf2z_vG5j9zYz5ORym0AZVB203-twom8XmM8H-zfRrafJnYILG_9qwn0ePjOUFyjVcHwTvJ8Ga&usqp=CAE",
       category: "Gatos",
       inStock: true
     },
     {
       id: 7,
-      name: "Taste of the Wild Pacific Stream Senior",
+      name: "Taste Of The Wild - Southwest Canyon Canine Recipe",
       price: 69.99,
       originalPrice: 89.99,
       discount: 22,
       rating: 4.4,
       numReviews: 65,
-      image: "https://bestforpets.cl/tienda/12793-large_default/taste-of-the-wild-pacific-stream.jpg",
+      image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTKVcrqJ0yusfw8LFd2txGTX-0XCV5gu5uyzUDD8_d5v5vWK-sMC1xnvnb1tDD0U3FwgxhpEmoKN0he71LbSMGH4nu4LhH0ldM6j-pkQBWfJ6uEAMx8bXU6OQ&usqp=CAE",
       category: "Perros",
       inStock: true
     },
@@ -115,13 +103,13 @@ export default function Products() {
     },
     {
       id: 9,
-      name: "Taste of the Wild High Prairie Grain Free",
-      price: 28.99,
-      originalPrice: 34.99,
-      discount: 17,
+      name: "Taste Of The Wild - Southwest Canyon Canine Recipe",
+      price: 64.99,
+      originalPrice: 74.99,
+      discount: 13,
       rating: 4.7,
-      numReviews: 83,
-      image: "https://braloy102.akamaized.net/8000/taste-of-the-wild-high-prairie-adulto-122-kg.jpg",
+      numReviews: 87,
+      image: "https://bestforpets.cl/tienda/14601-large_default/taste-of-the-wild-southwest-canyon.jpg",
       category: "Perros",
       inStock: true
     },
@@ -151,14 +139,38 @@ export default function Products() {
     },
     {
       id: 12,
-      name: "Taste of the Wild Pacific Stream Húmedo",
-      price: 1.99,
-      originalPrice: 2.49,
-      discount: 20,
+      name: "Juguetes para perro sin relleno con chirridos (zorro, pingüino, zorrillo)",
+      price: 12.99,
+      originalPrice: 19.99,
+      discount: 35,
       rating: 4.8,
       numReviews: 94,
-      image: "https://www.tusmascotas.cl/wp-content/uploads/2020/10/Taste-Of-The-Wild-Pacific-Stream-Puppy-Salmon-.jpg",
-      category: "Gatos",
+      image: "https://m.media-amazon.com/images/I/71WWqgZOM9L._AC_UF894,1000_QL80_.jpg",
+      category: "Perros",
+      inStock: true
+    },
+    {
+      id: 13,
+      name: "juguete interactivo de entrenamiento",
+      price: 12.99,
+      originalPrice: 16.99,
+      discount: 24,
+      rating: 4.7,
+      numReviews: 83,
+      image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRu9_dhi4H1Cpt1v4AOP3bFhSjMZCJVr6I7KovEbk8GZodas7dqXceDEXMCBdpRWRdWcr-WypTeRaZ_I_seItnxIp6G-JOcBwN0W4wNSs_-XPKgSGgvz2rKPw&usqp=CAE",
+      category: "Accesorios",
+      inStock: true
+    },
+    {
+      id: 14,
+      name: "Taste of The Wild Dog Prey Formula trout",
+      price: 68.88,
+      originalPrice: 78.99,
+      discount: 13,
+      rating: 4.8,
+      numReviews: 56,
+      image: "https://cdnx.jumpseller.com/patitasaliwen/image/47471663/prey-trout-formula-1136kg.jpg?1712456798",
+      category: "Perros",
       inStock: true
     }
   ];
@@ -314,70 +326,69 @@ export default function Products() {
             </div>
             
             {/* Grid de productos - 3x3 grid exacto */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4 mb-8">
               {sortedProducts.slice(0, 9).map((product, index) => (
                 <div 
                   key={product.id} 
                   className="w-full flex-none"
                   data-aos="fade-up" 
-                  data-aos-delay={index < 3 ? index * 100 : 0}
+                  data-aos-delay={index * 50}
                 >
                   <div className="cursor-pointer block h-full transform transition-all duration-300 hover:scale-105">
-                    <div className="flex flex-col h-full bg-[#f8f3e0] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-4 border border-[#e6dfcf]/60 overflow-hidden group">
+                    <div className="flex flex-col h-full bg-[#f8f3e0] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-3 border border-[#e6dfcf]/60 overflow-hidden group">
                       <div 
-                        className="relative w-full aspect-square mb-4 overflow-hidden rounded-lg"
+                        className="relative w-full aspect-square mb-2 overflow-hidden rounded-md"
                       >
                         <img
                           src={product.image}
                           alt={product.name}
                           className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                           loading="lazy"
-                          width="200"
-                          height="200"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         {product.discount > 0 && (
-                          <div className="absolute top-2 right-2 bg-[#8B4513] text-white text-xs font-bold px-2 py-1 rounded-full">
+                          <div className="absolute top-1 right-1 bg-[#8B4513] text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
                             -{product.discount}%
                           </div>
                         )}
                       </div>
                       <h3 
-                        className="text-xl font-bold mb-2 line-clamp-2 text-[#2d3b4a] group-hover:text-[#8B4513] transition-colors duration-300"
+                        className="text-sm font-bold mb-1 line-clamp-2 text-[#2d3b4a] group-hover:text-[#8B4513] transition-colors duration-300"
                       >
                         {product.name}
                       </h3>
                       <div 
-                        className="text-sm text-[#5a6b7e] mb-2"
+                        className="text-xs text-[#5a6b7e] mb-1"
                       >
                         {product.category}
                       </div>
-                      <div className="flex items-center mb-2">
-                        <div className="flex mr-2">
+                      <div className="flex items-center mb-1 text-xs">
+                        <div className="flex mr-1">
                           {[...Array(5)].map((_, i) => (
                             <FiStar 
                               key={i}
-                              className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                              className={`w-3 h-3 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                             />
                           ))}
                         </div>
-                        <span className="text-xs text-[#5a6b7e]">({product.numReviews})</span>
+                        <span className="text-gray-500">{product.rating}</span>
                       </div>
                       <div 
-                        className="flex items-center justify-center mb-4"
+                        className="flex items-center mb-2"
                       >
-                        <span className="text-xl font-bold text-[#8B4513]">${product.price}</span>
+                        <span className="text-sm font-bold text-[#8B4513]">${product.price}</span>
                         {product.originalPrice && (
-                          <span className="text-sm text-gray-500 line-through ml-2">
+                          <span className="text-xs text-gray-500 line-through ml-1">
                             ${product.originalPrice}
                           </span>
                         )}
                       </div>
                       <div className="mt-auto">
                         <button
-                          className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#8B4513] text-white rounded-md group-hover:bg-[#723a0f] transition-colors duration-300 text-sm font-semibold"
+                          onClick={(e) => handleAddToCart(e, product)}
+                          className="inline-flex items-center justify-center w-full px-2 py-1.5 bg-[#8B4513] text-white rounded-md hover:bg-[#723a0f] transition-colors duration-300 text-xs font-semibold"
+                          type="button"
                         >
-                          Añadir al carrito
+                          Añadir <FiShoppingCart className="ml-1 w-3 h-3" />
                         </button>
                       </div>
                     </div>

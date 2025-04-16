@@ -42,8 +42,7 @@ export default function Navbar() {
 
   const handleCartClick = () => {
     if (!isAuthenticated) {
-      toast.error('Debes iniciar sesión para acceder al carrito');
-      navigate('/login');
+      navigate('/register');
       return;
     }
     setCartDrawerOpen(true);
@@ -83,7 +82,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img 
-              src="/my-app/perro-tejonero.png" 
+              src="/perro-tejonero.png" 
               alt="Logo Perro" 
               className="h-14 w-14 object-contain mr-2"
             />
@@ -109,10 +108,7 @@ export default function Navbar() {
             </button>
             <button 
               onClick={handleCartClick}
-              className={`relative text-gray-700 hover:text-blue-700 ${
-                !isAuthenticated ? 'cursor-not-allowed' : ''
-              }`}
-              disabled={!isAuthenticated}
+              className="relative text-gray-700 hover:text-blue-700"
               aria-label="Carrito"
             >
               <FiShoppingCart className="w-5 h-5" />
@@ -158,10 +154,7 @@ export default function Navbar() {
           <div className="flex items-center md:hidden">
             <button 
               onClick={handleCartClick}
-              className={`relative text-gray-700 hover:text-blue-700 mr-3 ${
-                !isAuthenticated ? 'cursor-not-allowed' : ''
-              }`}
-              disabled={!isAuthenticated}
+              className="relative text-gray-700 hover:text-blue-700 mr-3"
               aria-label="Carrito"
             >
               <FiShoppingCart className="w-5 h-5" />

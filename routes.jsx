@@ -10,6 +10,10 @@ import ServerProfile from './pages/ServerProfile';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import OrderSuccess from './pages/OrderSuccess';
+import ForgotPassword from './pages/ForgotPassword';
+import Orders from './pages/Orders';
+import Favorites from './pages/Favorites';
+import ShippingAddresses from './pages/ShippingAddresses';
 
 export default function AppRoutes() {
   return (
@@ -25,6 +29,10 @@ export default function AppRoutes() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/order-success" element={<OrderSuccess />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/orders" element={<Orders />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/shipping-addresses" element={<ShippingAddresses />} />
     </Routes>
   );
 }

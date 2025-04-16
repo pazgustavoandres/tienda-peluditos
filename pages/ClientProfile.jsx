@@ -251,7 +251,7 @@ export default function ClientProfile() {
             <h2 className="text-2xl font-bold text-[#2d3b4a] mb-6" data-aos="fade-up">
               Acciones Rápidas
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {[
                 {
                   icon: <FiShoppingBag className="w-6 h-6" />,
@@ -259,20 +259,6 @@ export default function ClientProfile() {
                   description: "Revisa el estado de tus compras recientes",
                   action: () => navigate('/orders'),
                   delay: "300"
-                },
-                {
-                  icon: <FiHeart className="w-6 h-6" />,
-                  title: "Mis Favoritos",
-                  description: "Productos que has guardado para más tarde",
-                  action: () => navigate('/favorites'),
-                  delay: "400"
-                },
-                {
-                  icon: <FiPackage className="w-6 h-6" />,
-                  title: "Direcciones de Envío",
-                  description: "Administra tus direcciones de entrega",
-                  action: () => navigate('/shipping-addresses'),
-                  delay: "500"
                 }
               ].map((action, index) => (
                 <div

@@ -40,7 +40,7 @@ export default function DogFood() {
       name: "Sierra Mountain Canine",
       description: "Con cordero asado",
       price: 645.00,
-      image: "https://tasteofthewild.mx/wp-content/uploads/2023/03/sierra-mountain-canine-min.png"
+      image: "https://bestforpets.cl/tienda/14599-large_default/taste-of-the-wild-sierra-mountain.jpg"
     },
     {
       id: 4,
@@ -54,7 +54,7 @@ export default function DogFood() {
       name: "High Prairie Puppy",
       description: "Con bisonte y venado asados",
       price: 645.00,
-      image: "https://tasteofthewild.mx/wp-content/uploads/2023/03/high-prairie-puppy-min.png"
+      image: "https://www.tusmascotas.cl/wp-content/uploads/2022/06/img-taste-high-prairie-puppy.jpg"
     }
   ];
 

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { toast } from 'react-hot-toast';
+import { useAuth } from '../src/context/AuthContext';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -16,8 +17,8 @@ export default function Register() {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
   const navigate = useNavigate();
+  const { register } = useAuth();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -66,42 +67,23 @@ export default function Register() {
       setIsLoading(true);
 
       try {
-        // Crear nuevo usuario
-        const newUser = {
+        // Crear objeto de usuario para enviarlo al backend
+        const userData = {
           name: formData.name,
           email: formData.email,
-          password: formData.password, // En una aplicación real, esto debería estar hasheado
+          password: formData.password,
           role: formData.role
         };
 
-        // Obtener usuarios existentes o inicializar array
-        const existingUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+        // Usar el contexto de autenticación para registrar
+        const response = await register(userData);
         
-        // Verificar si el email ya está registrado
-        if (existingUsers.some(user => user.email === formData.email)) {
-          toast.error('Este email ya está registrado');
-          setIsLoading(false);
-          return;
-        }
-
-        // Agregar nuevo usuario
-        existingUsers.push(newUser);
-        localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
-
-        // Guardar sesión del usuario (sin la contraseña)
-        const userSession = {
-          name: newUser.name,
-          email: newUser.email,
-          role: newUser.role
-        };
-        localStorage.setItem('user', JSON.stringify(userSession));
-
         toast.success('¡Registro exitoso!');
         
         // Redirigir según el rol
         navigate(formData.role === 'client' ? '/perfil-cliente' : '/perfil-servidor');
       } catch (error) {
-        toast.error('Error al registrar usuario');
+        toast.error(error.message || 'Error al registrar usuario');
       } finally {
         setIsLoading(false);
       }
@@ -111,15 +93,15 @@ export default function Register() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="flex-grow flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex-grow flex items-center justify-center bg-[#f8f3e0] py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-[#2d3b4a]">
               Crea tu cuenta
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               ¿Ya tienes una cuenta?{' '}
-              <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link to="/login" className="font-medium text-[#8B4513] hover:text-[#723a0f]">
                 Inicia sesión aquí
               </Link>
             </p>
@@ -138,7 +120,7 @@ export default function Register() {
                     onChange={handleChange}
                     className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
                       errors.name ? 'border-red-300' : 'border-gray-300'
-                    } placeholder-gray-500 text-gray-900 rounded-t-md sm:rounded-none sm:rounded-tl-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                    } placeholder-gray-500 text-gray-900 rounded-t-md sm:rounded-none sm:rounded-tl-md focus:outline-none focus:ring-[#8B4513] focus:border-[#8B4513] focus:z-10 sm:text-sm`}
                     placeholder="Nombre"
                   />
                   {errors.name && (
@@ -157,7 +139,7 @@ export default function Register() {
                     onChange={handleChange}
                     className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
                       errors.email ? 'border-red-300' : 'border-gray-300'
-                    } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                    } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#8B4513] focus:border-[#8B4513] focus:z-10 sm:text-sm`}
                     placeholder="Email"
                   />
                   {errors.email && (
@@ -177,7 +159,7 @@ export default function Register() {
                   onChange={handleChange}
                   className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
                     errors.password ? 'border-red-300' : 'border-gray-300'
-                  } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                  } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#8B4513] focus:border-[#8B4513] focus:z-10 sm:text-sm`}
                   placeholder="Contraseña"
                 />
                 <button
@@ -209,7 +191,7 @@ export default function Register() {
                   onChange={handleChange}
                   className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
                     errors.confirmPassword ? 'border-red-300' : 'border-gray-300'
-                  } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                  } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#8B4513] focus:border-[#8B4513] focus:z-10 sm:text-sm`}
                   placeholder="Confirmar contraseña"
                 />
                 {errors.confirmPassword && (
@@ -219,7 +201,7 @@ export default function Register() {
             </div>
 
             <div>
-              <label htmlFor="role" className="block text-gray-700 text-sm font-bold mb-2">
+              <label htmlFor="role" className="block text-[#2d3b4a] text-sm font-bold mb-2">
                 Tipo de cuenta
               </label>
               <select
@@ -227,10 +209,10 @@ export default function Register() {
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B4513]`}
               >
                 <option value="client">Cliente</option>
-                <option value="server">Servidor</option>
+                <option value="vendor">Vendedor</option>
               </select>
             </div>
 
@@ -239,8 +221,8 @@ export default function Register() {
                 type="submit"
                 disabled={isLoading}
                 className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
-                  isLoading ? 'bg-blue-400' : 'bg-blue-600 hover:bg-blue-700'
-                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+                  isLoading ? 'bg-[#a97c50]' : 'bg-[#8B4513] hover:bg-[#723a0f]'
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8B4513]`}
               >
                 {isLoading ? 'Registrando...' : 'Registrarse'}
               </button>
@@ -253,7 +235,7 @@ export default function Register() {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-50 text-gray-500">
+                <span className="px-2 bg-[#f8f3e0] text-gray-500">
                   O regístrate con
                 </span>
               </div>
@@ -263,7 +245,7 @@ export default function Register() {
               <div>
                 <a
                   href="#"
-                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-[#f8f3e0] text-sm font-medium text-gray-500 hover:bg-[#e6dfcf]"
                 >
                   <span className="sr-only">Registrarse con Google</span>
                   <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
@@ -275,7 +257,7 @@ export default function Register() {
               <div>
                 <a
                   href="#"
-                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-[#f8f3e0] text-sm font-medium text-gray-500 hover:bg-[#e6dfcf]"
                 >
                   <span className="sr-only">Registrarse con Facebook</span>
                   <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">

@@ -135,7 +135,7 @@ export default function Home() {
       discount: 14,
       rating: 4.7,
       numReviews: 98,
-      image: "https://tasteofthewild.mx/wp-content/uploads/TOWi-SierraMtn-FRONT_1-1-300x300.png",
+      image: "https://bestforpets.cl/tienda/14599-large_default/taste-of-the-wild-sierra-mountain.jpg",
       category: "Perros",
       inStock: true
     },
@@ -159,7 +159,7 @@ export default function Home() {
       discount: 14,
       rating: 4.8,
       numReviews: 71,
-      image: "https://tasteofthewild.mx/wp-content/uploads/TOW-HPPuppy-FRONT-1-300x300.png",
+      image: "https://www.tusmascotas.cl/wp-content/uploads/2022/06/img-taste-high-prairie-puppy.jpg",
       category: "Perros",
       inStock: true
     },
@@ -275,16 +275,16 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] pt-16 overflow-hidden flex items-center">
+      <section className="relative min-h-[80vh] pt-10 overflow-hidden flex items-center">
         {/* Imagen de fondo del hero */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://www.tasteofthewildpetfood.com/wp-content/uploads/2024/11/taste-of-the-wild-high-prairie-in-front-of-ancient-stream-and-prey-angus-beef-recipes-100824.png" 
             alt="Taste of the Wild" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl mx-auto text-center" data-aos="fade-up">
@@ -293,36 +293,36 @@ export default function Home() {
       </section>
       
       {/* Sección de mensaje principal */}
-      <section className="py-20 relative overflow-hidden my-8">
+      <section className="py-16 relative overflow-hidden my-6">
         {/* Fondo de imagen con overlay */}
-        <div className="absolute inset-0 z-0 rounded-3xl overflow-hidden">
+        <div className="absolute inset-0 z-0 rounded-xl overflow-hidden">
           <img 
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTA23turTg0-En-ssMhGiqOyG5CmWRXCSIrOw6L76c8Yk0KfPLwEnQ0dU7TzQUKGNDGEk&usqp=CAU" 
+            src="https://i.ebayimg.com/images/g/GwAAAOSw1eFhTiQk/s-l1600.jpg" 
             alt="Fondo Mascotas" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-right-center scale-130"
             loading="lazy"
-            style={{ filter: 'blur(1px) brightness(1.05)' }}
+            style={{ filter: 'brightness(0.85) contrast(1.15)' }}
           />
           <div className="absolute inset-0 bg-black/30 backdrop-filter backdrop-brightness-90"></div>
         </div>
-        <div className="container mx-auto px-4 py-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center bg-black/10 backdrop-blur-sm rounded-xl p-8 shadow-lg" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg">
+        <div className="container mx-auto px-4 py-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center bg-black/30 backdrop-blur-md rounded-xl p-8 shadow-lg" data-aos="fade-up">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
               Tu mascota tiene un deseo instintivo por la proteína de calidad
             </h2>
-            <p className="text-lg text-white mb-8 drop-shadow-md">
+            <p className="text-xl text-white mb-6 drop-shadow-lg">
               Es por eso que nuestros alimentos están inspirados en la naturaleza y elaborados con proteínas únicas que perros y gatos anhelan. Permite que los instintos naturales de tu mascota se expresen mientras disfrutan de alimentos formulados especialmente con fuentes de proteínas basadas en su dieta ancestral.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
               <Link 
                 to="/dogs" 
-                className="px-8 py-4 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#723a0f] transition-all duration-300 inline-flex items-center justify-center"
+                className="px-8 py-3 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#723a0f] transition-all duration-300 inline-flex items-center justify-center"
               >
                 Explorar productos para perros
               </Link>
               <Link 
                 to="/cats" 
-                className="px-8 py-4 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#723a0f] transition-all duration-300 inline-flex items-center justify-center"
+                className="px-8 py-3 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#723a0f] transition-all duration-300 inline-flex items-center justify-center"
               >
                 Explorar productos para gatos
               </Link>
@@ -332,28 +332,28 @@ export default function Home() {
       </section>
       
       {/* Productos Destacados */}
-      <section className="py-16 bg-white/90 backdrop-blur-sm">
+      <section className="py-12 bg-white/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-[#2d3b4a]" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#2d3b4a]" data-aos="fade-up">
             A la caza del mejor sabor
           </h2>
-          <p className="text-center text-[#5a6b7e] text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
+          <p className="text-center text-[#5a6b7e] text-lg leading-relaxed mb-10 max-w-3xl mx-auto">
             Encontrar los sabores que atraen a tu mascota puede ser un viaje emocionante. Cada una de nuestras recetas ofrece beneficios únicos y experiencias de sabor incomparables.
           </p>
           <Suspense fallback={<div className="w-full text-center py-8">Cargando productos...</div>}>
-            <div className="relative px-6 md:px-10">
+            <div className="relative px-4 md:px-8">
               <button 
                 onClick={() => scrollProducts('left')} 
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center focus:outline-none border border-gray-200"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center focus:outline-none border border-gray-200"
                 aria-label="Productos anteriores"
                 type="button"
               >
-                <FiChevronLeft size={24} className="text-[#2d3b4a]" />
+                <FiChevronLeft size={20} className="text-[#2d3b4a]" />
               </button>
               
               <div 
                 ref={productCarouselRef}
-                className="flex overflow-x-auto gap-6 pb-8 pt-2 snap-x snap-mandatory scrollbar-hide"
+                className="flex overflow-x-auto gap-5 pb-6 pt-2 snap-x snap-mandatory scrollbar-hide"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 {featuredProducts.map((product, index) => (
@@ -374,7 +374,7 @@ export default function Home() {
                           <img
                             src={product.image}
                             alt={product.name}
-                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-115"
                             loading="lazy"
                             width="200"
                             height="200"
@@ -387,7 +387,7 @@ export default function Home() {
                           )}
                         </div>
                         <h3 
-                          className="text-xl font-bold mb-2 line-clamp-2 text-[#2d3b4a] group-hover:text-[#8B4513] transition-colors duration-300"
+                          className="text-lg font-bold mb-1 line-clamp-2 text-[#2d3b4a] group-hover:text-[#8B4513] transition-colors duration-300"
                           onClick={() => openProductModal(product)}
                         >
                           {product.name}
@@ -399,7 +399,7 @@ export default function Home() {
                           {product.category}
                         </div>
                         <div 
-                          className="flex items-center justify-center mb-4"
+                          className="flex items-center justify-center mb-3"
                           onClick={() => openProductModal(product)}
                         >
                           <span className="text-xl font-bold text-[#8B4513]">${product.price}</span>
@@ -412,7 +412,7 @@ export default function Home() {
                         <div className="mt-auto">
                           <button
                             onClick={(e) => handleAddToCart(e, product)}
-                            className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#8B4513] text-white rounded-md group-hover:bg-[#723a0f] transition-colors duration-300 text-sm font-semibold"
+                            className="inline-flex items-center justify-center w-full px-4 py-2 bg-[#8B4513] text-white rounded-md group-hover:bg-[#723a0f] transition-colors duration-300 text-sm font-semibold"
                             type="button"
                           >
                             Añadir al carrito <FiShoppingCart className="ml-2" />
@@ -426,18 +426,18 @@ export default function Home() {
               
               <button 
                 onClick={() => scrollProducts('right')} 
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center focus:outline-none border border-gray-200"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center focus:outline-none border border-gray-200"
                 aria-label="Productos siguientes"
                 type="button"
               >
-                <FiChevronRight size={24} className="text-[#2d3b4a]" />
+                <FiChevronRight size={20} className="text-[#2d3b4a]" />
               </button>
             </div>
           </Suspense>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <Link 
               to="/products" 
-              className="inline-block px-8 py-3 bg-[#2d3b4a] text-white rounded-md hover:bg-[#1f2936] transition-colors duration-300 font-semibold"
+              className="inline-block px-6 py-2 bg-[#2d3b4a] text-white rounded-md hover:bg-[#1f2936] transition-colors duration-300 font-semibold"
             >
               Ver todos los productos
             </Link>
@@ -446,17 +446,17 @@ export default function Home() {
       </section>
       
       {/* Categorías destacadas */}
-      <section className="py-16 bg-[#f8f6f2]/50 backdrop-blur-sm">
+      <section className="py-12 bg-[#f8f6f2]/50 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center bg-white/30 backdrop-blur-sm p-8 rounded-xl mb-10" data-aos="fade-up">
-            <h2 className="text-3xl font-bold text-center mb-6 text-[#2d3b4a]" data-aos="fade-up">
+          <div className="max-w-4xl mx-auto text-center bg-white/30 backdrop-blur-sm p-6 rounded-xl mb-8" data-aos="fade-up">
+            <h2 className="text-2xl font-bold text-center mb-4 text-[#2d3b4a]" data-aos="fade-up">
               Encuentra la receta ideal para tu mascota
             </h2>
-            <p className="text-center text-[#5a6b7e] mb-6 max-w-2xl mx-auto">
+            <p className="text-center text-[#5a6b7e] mb-4 max-w-2xl mx-auto">
               Cada una de nuestras categorías está pensada para satisfacer las necesidades específicas de tu mascota
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {categories.map((category, index) => (
               <Link
                 key={index}
@@ -468,23 +468,23 @@ export default function Home() {
                   data-aos="fade-up"
                   data-aos-delay={category.delay}
                 >
-                  <div className="relative h-56 overflow-hidden">
+                  <div className="relative h-60 overflow-hidden">
                     <img
                       src={category.image}
                       alt={category.title}
-                      className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${
-                        category.title === "Comida para gatos" ? "object-contain bg-[#f8f6f2] p-2" : "object-cover"
+                      className={`w-full h-full scale-105 transition-transform duration-700 group-hover:scale-115 ${
+                        category.title === "Comida para gatos" ? "object-cover" : "object-cover"
                       }`}
                       loading="lazy"
                       width="400"
                       height="250"
-                      style={category.title === "Comida para gatos" ? { filter: 'contrast(1.1) brightness(1.05)' } : {}}
+                      style={category.title === "Comida para gatos" ? {} : {}}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold text-[#2d3b4a] mb-2">{category.title}</h3>
-                    <p className="text-[#5a6b7e] mb-4">{category.description}</p>
+                  <div className="p-5">
+                    <h3 className="text-xl font-bold text-[#2d3b4a] mb-2">{category.title}</h3>
+                    <p className="text-[#5a6b7e] mb-3 text-sm">{category.description}</p>
                     <span
                       className="inline-flex items-center text-[#8B4513] font-semibold hover:text-[#723a0f] transition-colors"
                     >
@@ -499,22 +499,22 @@ export default function Home() {
       </section>
       
       {/* Sección de Beneficios */}
-      <section className="py-16 bg-white/90 backdrop-blur-sm">
+      <section className="py-12 bg-white/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#2d3b4a]" data-aos="fade-up">
+          <h2 className="text-2xl font-bold text-center mb-8 text-[#2d3b4a]" data-aos="fade-up">
             Ingredientes únicos con beneficios excepcionales
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-[#f8f3e0] rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300"
+                className="bg-[#f8f3e0] rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-[#2d3b4a]">{benefit.title}</h3>
-                <p className="text-[#5a6b7e]">{benefit.description}</p>
+                <div className="text-4xl mb-3">{benefit.icon}</div>
+                <h3 className="text-lg font-semibold mb-2 text-[#2d3b4a]">{benefit.title}</h3>
+                <p className="text-[#5a6b7e] text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -522,29 +522,29 @@ export default function Home() {
       </section>
       
       {/* Newsletter */}
-      <section className="py-16 bg-[#2d3b4a]">
+      <section className="py-12 bg-[#2d3b4a]">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center" data-aos="fade-up">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-white mb-3">
               ¡Únete a nuestra manada!
             </h2>
-            <p className="text-white/90 mb-8">
+            <p className="text-white/90 mb-6 text-sm">
               Recibe ofertas exclusivas y consejos para el cuidado de tus mascotas
             </p>
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 justify-center">
               <input 
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Tu correo electrónico"
-                className="px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#8B4513] flex-1 max-w-md"
+                className="px-5 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-[#8B4513] flex-1 max-w-md"
                 required
                 aria-label="Email para suscripción"
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                className="px-8 py-3 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#723a0f] transition-all duration-300 disabled:opacity-70"
+                className="px-6 py-2 bg-[#8B4513] text-white rounded-full font-semibold hover:bg-[#723a0f] transition-all duration-300 disabled:opacity-70"
                 aria-label="Suscribirse al newsletter"
               >
                 {isLoading ? (
@@ -578,41 +578,41 @@ export default function Home() {
           aria-labelledby="product-modal-title"
         >
           <div 
-            className="bg-[#f8f3e0] rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all"
+            className="bg-[#f8f3e0] rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-4">
-              <h2 id="product-modal-title" className="text-2xl font-bold text-[#2d3b4a]">{selectedProduct.name}</h2>
+              <h2 id="product-modal-title" className="text-xl font-bold text-[#2d3b4a]">{selectedProduct.name}</h2>
               <button 
                 onClick={closeProductModal}
                 className="p-2 text-gray-500 hover:text-[#8B4513] transition-colors"
                 aria-label="Cerrar modal"
                 type="button"
               >
-                <FiX size={24} />
+                <FiX size={20} />
               </button>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-4 flex items-center justify-center">
                 <img 
                   src={selectedProduct.image} 
                   alt={selectedProduct.name} 
-                  className="max-h-80 object-contain"
+                  className="max-h-60 object-contain scale-110"
                   loading="lazy"
                 />
               </div>
               
               <div className="flex flex-col">
-                <div className="mb-4">
+                <div className="mb-3">
                   <p className="text-sm font-medium text-[#8B4513] mb-1">Categoría</p>
                   <p className="text-[#5a6b7e]">{selectedProduct.category}</p>
                 </div>
                 
-                <div className="mb-4">
+                <div className="mb-3">
                   <p className="text-sm font-medium text-[#8B4513] mb-1">Precio</p>
                   <div className="flex items-center">
-                    <span className="text-2xl font-bold text-[#2d3b4a]">${selectedProduct.price}</span>
+                    <span className="text-xl font-bold text-[#2d3b4a]">${selectedProduct.price}</span>
                     {selectedProduct.originalPrice && (
                       <span className="text-sm text-gray-500 line-through ml-2">
                         ${selectedProduct.originalPrice}
@@ -626,7 +626,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="mb-4">
+                <div className="mb-3">
                   <p className="text-sm font-medium text-[#8B4513] mb-1">Valoración</p>
                   <div className="flex items-center">
                     <div className="flex mr-2">
@@ -637,24 +637,24 @@ export default function Home() {
                         />
                       ))}
                     </div>
-                    <span className="text-[#5a6b7e]">
+                    <span className="text-[#5a6b7e] text-sm">
                       {selectedProduct.rating} ({selectedProduct.numReviews} reseñas)
                     </span>
                   </div>
                 </div>
                 
-                <div className="mb-6">
+                <div className="mb-4">
                   <p className="text-sm font-medium text-[#8B4513] mb-1">Descripción</p>
-                  <p className="text-[#5a6b7e]">
+                  <p className="text-[#5a6b7e] text-sm">
                     Este producto está diseñado para proporcionar la mejor nutrición y comodidad a tu mascota. Elaborado con ingredientes de alta calidad para asegurar el bienestar y la salud.
                   </p>
                 </div>
                 
                 <div className="mt-auto">
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 gap-3">
                     <button 
                       onClick={(e) => handleAddToCart(e, selectedProduct)}
-                      className="inline-flex items-center justify-center px-6 py-3 bg-[#8B4513] text-white rounded-md hover:bg-[#723a0f] transition-colors duration-300 text-sm font-semibold"
+                      className="inline-flex items-center justify-center px-4 py-2 bg-[#8B4513] text-white rounded-md hover:bg-[#723a0f] transition-colors duration-300 text-sm font-semibold"
                       type="button"
                     >
                       <FiShoppingCart className="mr-2" /> Añadir al carrito

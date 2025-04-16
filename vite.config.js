@@ -5,7 +5,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/my-app/', // URL base, si tu app se sirve desde una subcarpeta.
+  base: './', // Cambiado para servir relativamente al directorio actual
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')

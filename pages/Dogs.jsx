@@ -57,7 +57,7 @@ export default function Dogs() {
       discount: 14,
       rating: 4.7,
       numReviews: 98,
-      image: "https://tasteofthewild.mx/wp-content/uploads/TOWi-SierraMtn-FRONT_1-1-300x300.png",
+      image: "https://bestforpets.cl/tienda/14599-large_default/taste-of-the-wild-sierra-mountain.jpg",
       category: "Perros",
       inStock: true
     },
@@ -117,7 +117,7 @@ export default function Dogs() {
       discount: 14,
       rating: 4.8,
       numReviews: 71,
-      image: "https://tasteofthewild.mx/wp-content/uploads/TOW-HPPuppy-FRONT-1-300x300.png",
+      image: "https://www.tusmascotas.cl/wp-content/uploads/2022/06/img-taste-high-prairie-puppy.jpg",
       category: "Perros",
       inStock: true
     },
@@ -129,7 +129,55 @@ export default function Dogs() {
       discount: 13,
       rating: 4.7,
       numReviews: 63,
-      image: "https://cdnx.jumpseller.com/pet-bj/image/12245143/resize/810/810?1658152994",
+      image: "https://cdnx.jumpseller.com/pet-bj/image/12245086/resize/810/810?1658151424",
+      category: "Perros",
+      inStock: true
+    },
+    {
+      id: 10,
+      name: "Taste Of The Wild Dog Prey Formula trout",
+      price: 68.88,
+      originalPrice: 78.99,
+      discount: 13,
+      rating: 4.8,
+      numReviews: 56,
+      image: "https://cdnx.jumpseller.com/patitasaliwen/image/47471663/prey-trout-formula-1136kg.jpg?1712456798",
+      category: "Perros",
+      inStock: true
+    },
+    {
+      id: 11,
+      name: "Taste Of The Wild Dog Pine Forest",
+      price: 75.99,
+      originalPrice: 85.99,
+      discount: 12,
+      rating: 4.9,
+      numReviews: 49,
+      image: "https://dojiw2m9tvv09.cloudfront.net/11787/product/taste-of-the-wild-dog-pine-forest7547.jpg",
+      category: "Perros",
+      inStock: true
+    },
+    {
+      id: 12,
+      name: "Taste Of The Wild Ancient Mountain Dog",
+      price: 72.99,
+      originalPrice: 82.99,
+      discount: 12,
+      rating: 4.8,
+      numReviews: 45,
+      image: "https://gpet.cl/web/image/product.template/34351/image_1024?unique=cd4376c",
+      category: "Perros",
+      inStock: true
+    },
+    {
+      id: 13,
+      name: "Taste of the Wild Ancient Prairie",
+      price: 69.99,
+      originalPrice: 79.99,
+      discount: 13,
+      rating: 4.7,
+      numReviews: 52,
+      image: "https://www.tusmascotas.cl/wp-content/uploads/2022/08/6040045.png",
       category: "Perros",
       inStock: true
     }
@@ -195,87 +243,66 @@ export default function Dogs() {
           
           {/* Productos - Grid exacto de 3x3 */}
           <h2 className="text-3xl font-bold mb-8 text-[#2d3b4a]" data-aos="fade-up">Productos destacados para perros</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" data-aos="fade-up">
-            {dogProducts.slice(0, 9).map((product, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4" data-aos="fade-up">
+            {dogProducts.map((product, index) => (
               <div 
-                key={product.id} 
-                className="flex h-full"
-                data-aos="fade-up" 
-                data-aos-delay={index < 3 ? index * 100 : 0}
+                key={product.id}
+                onClick={() => setSelectedProduct(product)}
+                className="cursor-pointer"
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
               >
-                <div className="w-full cursor-pointer block h-full transform transition-all duration-300 hover:scale-105">
-                  <div className="flex flex-col h-full bg-[#f8f3e0] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-4 border border-[#e6dfcf]/60 overflow-hidden group">
-                    <div 
-                      className="relative w-full aspect-square mb-4 overflow-hidden rounded-lg"
+                <div className="bg-[#f8f3e0] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-3 border border-[#e6dfcf]/60 overflow-hidden group h-full flex flex-col">
+                  <div className="relative aspect-square mb-2 overflow-hidden rounded-md">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    {product.discount > 0 && (
+                      <span className="absolute top-1 right-1 bg-[#8B4513] text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                        -{product.discount}%
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-sm font-bold mb-1 line-clamp-2 text-[#2d3b4a] group-hover:text-[#8B4513] transition-colors duration-300">
+                    {product.name}
+                  </h3>
+                  <div className="text-xs text-[#5a6b7e] mb-1">
+                    {product.category}
+                  </div>
+                  <div className="flex items-center mb-1 text-xs">
+                    <div className="flex mr-1">
+                      {[...Array(5)].map((_, i) => (
+                        <FiStar 
+                          key={i}
+                          className={`w-3 h-3 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-gray-500">{product.rating}</span>
+                  </div>
+                  <div className="flex items-center mb-2">
+                    <span className="text-sm font-bold text-[#8B4513]">${product.price}</span>
+                    {product.originalPrice && (
+                      <span className="text-xs text-gray-500 line-through ml-1">
+                        ${product.originalPrice}
+                      </span>
+                    )}
+                  </div>
+                  <div className="mt-auto">
+                    <button
+                      onClick={(e) => handleAddToCart(e, product)}
+                      className="inline-flex items-center justify-center w-full px-2 py-1.5 bg-[#8B4513] text-white rounded-md hover:bg-[#723a0f] transition-colors duration-300 text-xs font-semibold"
+                      type="button"
                     >
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
-                        loading="lazy"
-                        width="200"
-                        height="200"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      {product.discount > 0 && (
-                        <div className="absolute top-2 right-2 bg-[#8B4513] text-white text-xs font-bold px-2 py-1 rounded-full">
-                          -{product.discount}%
-                        </div>
-                      )}
-                    </div>
-                    <h3 
-                      className="text-xl font-bold mb-2 line-clamp-2 text-[#2d3b4a] group-hover:text-[#8B4513] transition-colors duration-300"
-                    >
-                      {product.name}
-                    </h3>
-                    <div 
-                      className="text-sm text-[#5a6b7e] mb-2"
-                    >
-                      {product.category}
-                    </div>
-                    <div className="flex items-center mb-2">
-                      <div className="flex mr-2">
-                        {[...Array(5)].map((_, i) => (
-                          <FiStar 
-                            key={i}
-                            className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-xs text-[#5a6b7e]">({product.numReviews})</span>
-                    </div>
-                    <div 
-                      className="flex items-center justify-center mb-4"
-                    >
-                      <span className="text-xl font-bold text-[#8B4513]">${product.price}</span>
-                      {product.originalPrice && (
-                        <span className="text-sm text-gray-500 line-through ml-2">
-                          ${product.originalPrice}
-                        </span>
-                      )}
-                    </div>
-                    <div className="mt-auto">
-                      <button
-                        onClick={(e) => handleAddToCart(e, product)}
-                        className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#8B4513] text-white rounded-md group-hover:bg-[#723a0f] transition-colors duration-300 text-sm font-semibold"
-                      >
-                        Añadir al carrito <FiShoppingCart className="ml-2" />
-                      </button>
-                    </div>
+                      Añadir <FiShoppingCart className="ml-1 w-3 h-3" />
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-          
-          {/* Botón para ver más */}
-          <div className="text-center mt-12">
-            <Link 
-              to="/products" 
-              className="inline-block px-8 py-3 bg-[#2d3b4a] text-white rounded-full font-semibold hover:bg-[#1f2936] transition-colors duration-300"
-            >
-              Ver todos los productos para perros
-            </Link>
           </div>
         </div>
       </section>

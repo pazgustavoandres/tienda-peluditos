@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { toast } from 'react-hot-toast';
+import { useAuth } from '../src/context/AuthContext';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -53,30 +55,18 @@ export default function Login() {
       setIsLoading(true);
       
       try {
-        // Obtener usuarios registrados del localStorage
-        const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+        // Usar el contexto de autenticación para iniciar sesión
+        const response = await login({
+          email: formData.email,
+          password: formData.password
+        });
         
-        // Buscar el usuario
-        const user = registeredUsers.find(u => u.email === formData.email && u.password === formData.password);
-
-        if (user) {
-          // Guardar datos del usuario en localStorage (sin la contraseña)
-          const userDataToStore = {
-            email: user.email,
-            role: user.role,
-            name: user.name
-          };
-          localStorage.setItem('user', JSON.stringify(userDataToStore));
-
-          toast.success(`¡Bienvenido/a ${user.name}!`);
-          
-          // Redirigir según el rol
-          navigate(user.role === 'client' ? '/client-profile' : '/');
-        } else {
-          toast.error('Credenciales incorrectas');
-        }
+        toast.success(`¡Bienvenido/a ${response.user.name}!`);
+        
+        // Redirigir según el rol
+        navigate(response.user.role === 'client' ? '/client-profile' : '/');
       } catch (error) {
-        toast.error('Error al iniciar sesión');
+        toast.error(error.message || 'Error al iniciar sesión');
       } finally {
         setIsLoading(false);
       }
@@ -94,7 +84,7 @@ export default function Login() {
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               ¿No tienes una cuenta?{' '}
-              <Link to="/register" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link to="/register" className="font-medium text-[#8B4513] hover:text-[#723a0f]">
                 Regístrate aquí
               </Link>
             </p>
@@ -113,7 +103,7 @@ export default function Login() {
                   onChange={handleChange}
                   className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
                     errors.email ? 'border-red-300' : 'border-gray-300'
-                  } placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                  } placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#8B4513] focus:border-[#8B4513] focus:z-10 sm:text-sm`}
                   placeholder="Email"
                 />
                 {errors.email && (
@@ -131,7 +121,7 @@ export default function Login() {
                   onChange={handleChange}
                   className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
                     errors.password ? 'border-red-300' : 'border-gray-300'
-                  } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`}
+                  } placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#8B4513] focus:border-[#8B4513] focus:z-10 sm:text-sm`}
                   placeholder="Contraseña"
                 />
                 <button
@@ -161,7 +151,7 @@ export default function Login() {
                   type="checkbox"
                   checked={formData.rememberMe}
                   onChange={handleChange}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-[#8B4513] focus:ring-[#8B4513] border-gray-300 rounded"
                 />
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
                   Recuérdame
@@ -169,7 +159,7 @@ export default function Login() {
               </div>
 
               <div className="text-sm">
-                <Link to="/forgot-password" className="font-medium text-blue-600 hover:text-blue-500">
+                <Link to="/forgot-password" className="font-medium text-[#8B4513] hover:text-[#723a0f]">
                   ¿Olvidaste tu contraseña?
                 </Link>
               </div>
@@ -180,11 +170,11 @@ export default function Login() {
                 type="submit"
                 disabled={isLoading}
                 className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
-                  isLoading ? 'bg-blue-400' : 'bg-blue-600 hover:bg-blue-700'
-                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+                  isLoading ? 'bg-[#a97c50]' : 'bg-[#8B4513] hover:bg-[#723a0f]'
+                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8B4513]`}
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                  <svg className="h-5 w-5 text-blue-500 group-hover:text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <svg className="h-5 w-5 text-[#e6dfcf] group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                   </svg>
                 </span>

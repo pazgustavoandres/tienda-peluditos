@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: tienda-peluditos-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: tienda-peluditos-db
+          property: connectionString
+
+databases:
+  - name: tienda-peluditos-db
+    plan: free
+    type: mongodb 
