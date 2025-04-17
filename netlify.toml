@@ -3,7 +3,7 @@
   publish = "dist"
 
 [context.production.environment]
-  VITE_API_URL = "https://api-usuario.onrender.com/api"
+  VITE_API_URL = "https://tienda-peluditos-api.onrender.com/api"
 
 [[redirects]]
   from = "/*"
